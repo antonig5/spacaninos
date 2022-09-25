@@ -1,12 +1,14 @@
- <?php
+
+    
+<?php
 include("../conexiones/conexion.php");
 $id= $_GET['id'];
 
-$eliminar1 = "DELETE  FROM raza WHERE id_raza = '$id' ";
-$elim = $base_de_datos->query($eliminar1);
+$eliminar = "DELETE  FROM mascota WHERE id_mascota = '$id' ";
+$elimina = $base_de_datos->query($eliminar);
 
-if($elim){
-    header("Location:tablaR.php");
+if($elimina){
+    header("Location:tablaM.php");
 }else{
     echo "<script>alert('No se pudo eliminar el registro'); window.history.go(-1);</script>";
 }
