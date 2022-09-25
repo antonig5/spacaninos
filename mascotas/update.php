@@ -9,18 +9,16 @@
 require("../conexiones/conexion.php");
 
     $id=$_GET["id"];
-    $raza=$_GET["raza"];
-    $docC=$_GET["cliente"];
-	$nomM= $_GET["nomM"];
-    $color= $_GET['color'];
+    $tipo=$_GET["nomM"];
+    
 	
     
 
 try{
-$sql="UPDATE mascota SET nombre_mascota=:nomb,id_raza=:raz, id_cliente=:docC,color=:co  WHERE id_mascota=:id";
+$sql="UPDATE raza SET nombre_raza=:nm WHERE id_raza=:id";
 $resultado=$base_de_datos->prepare($sql);  //$base guarda la conexión a la base de datos
-$resultado->execute(array(":id"=>$id,":nomb"=>$nomM, ":raz"=>$raza ,":docC"=>$docC ,":co"=>$color));//asigno las variables a los marcadores
-header('Location:tablaM.php');
+$resultado->execute(array(":id"=>$id,":nm"=>$tipo));//asigno las variables a los marcadores
+header('Location:tablaR.php');
 
 $resultado->closeCursor();
 }catch(Exception $e){

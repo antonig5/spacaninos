@@ -2,20 +2,17 @@
 include("../conexiones/conexion.php");
 if(isset($_GET['Registrar'])){
        
-        $nomM = $_GET['nomM'];
-        $raza = $_GET['mascota'];
-        $color = $_GET['colorM'];
-        $docC = $_GET['cliente'];
+        $nombreR= $_GET['nomR'];
     
         ?>
         
         <?php 
-        $sql="INSERT INTO mascota ( id_raza, id_cliente,nombre_mascota,color) values (:idR, :idC, :nomM, :colorM)";
+        $sql="INSERT INTO raza ( nombre_raza) values (:nomR)";
         $resultado=$base_de_datos->prepare($sql);//$base es el nombre de la conexión
-        $resultado->execute(array( ":idR"=>$raza, ":idC"=>$docC, ":nomM"=>$nomM, ":colorM"=>$color));
+        $resultado->execute(array(":nomR"=>$nombreR));
 
-        echo"<script>alert('Se realizo su exito correcto.')</script>";
-        echo"<script>window.location='tablaM.php'</script>";
+        echo"<script>alert('Se registro su registro .')</script>";
+        echo"<script>window.location='tablaR.php'</script>";
     
      
     }
