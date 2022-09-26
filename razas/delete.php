@@ -1,5 +1,5 @@
  <?php
-include("../conexiones/conexion.php");
+include("../conexion/conexion.php");
 $id= $_GET['id'];
 
 $eliminar1 = "DELETE  FROM raza WHERE id_raza = '$id' ";

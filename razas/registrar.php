@@ -1,5 +1,5 @@
 <?php
-include("../conexiones/conexion.php");
+include("../conexion/conexion.php");
 if(isset($_GET['Registrar'])){
        
         $nombreR= $_GET['nomR'];
