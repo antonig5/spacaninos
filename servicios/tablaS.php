@@ -4,22 +4,17 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="#">
     <title>Panel  de  registros de mascotas</title>
+    <link href="../css/tablas.css" rel="stylesheet" type="text/css">
+
 </head>
 <header>
     
-    <nav>
-        <ul>
-            <li><a href="#">#</a></li>
-            <li><a href="#">#</a></li>
-            <li><a href="#">#</a></li>
-            <li></li>
-        </ul>
-    </nav>
+   
 </header>
 <body>
     <?php
     
-    include("../conexiones/conexion.php");
+    include("../conexion/conexion.php");
 
     
     //--------------paginación-------------
@@ -94,14 +89,13 @@
     </form>
     <div class="formulario" align="center">
         <form action="registrar.php" method="get" >
-            <h1>registros de nuevos servicios</h1>
             <br>
             
-            Nombre de servicios:
+            <a>Nombre de servicios:</a>
             <input type="varchar" name="nomS" required><br>
             
            
-            Precio de servicio:
+            <a>Precio de servicio:</a>
             <input type="numbers" name="Pre" required><br>
             
             
