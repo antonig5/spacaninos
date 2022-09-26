@@ -4,6 +4,8 @@
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="../css/editarusu.css">
 	<title>Editar usuario</title>
+	<link href="../css/editarservicio.css" rel="stylesheet" type="text/css">
+
 </head>
 <body>
 <?php
@@ -24,15 +26,15 @@ try{
 	if($registro2=$resultado->fetch(PDO::FETCH_ASSOC)){
 		
 		?>
-	        <h4 align="center">Editar servicios</h4>	
+	        <h1 align="center">Editar servicios</h1>	
 		<form action="update.php" method="GET">
-        	<h5>N. de servicio:</h5><br>
+        	<h4>N. de servicio:</h4><br>
 				<input type="text" class="usua" readonly name="id" value="<?php echo $registro2['id_servicio']?>">
             
-        	<h5>Nombre del servicio:</h5><br>
+        	<h4>Nombre del servicio:</h4><br>
 				<input type="text" class="usua" name="nomS" value="<?php echo $registro2['nombre_servicio']?>" required>
 
-            <h5>precio del  servicio</h5>
+            <h4>precio del  servicio</h4>
                 <input type="number" class="usua" name="Pre" value="<?php echo $registro2['precio_servicio']?>" required>
             <br>
                 <input type="submit" class="btn" name="edita" class="guardar" value="Guardar">
