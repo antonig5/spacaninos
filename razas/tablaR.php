@@ -4,22 +4,17 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="#">
     <title>Panel  de  razas de  perros</title>
+    <link href="../css/tablaR.css" rel="stylesheet" type="text/css">
+
 </head>
 <header>
     
-    <nav>
-        <ul>
-            <li><a href="#">#</a></li>
-            <li><a href="#">#</a></li>
-            <li><a href="#">#</a></li>
-            <li></li>
-        </ul>
-    </nav>
+ 
 </header>
 <body>
     <?php
     
-    include("../conexiones/conexion.php");
+    include("../conexion/conexion.php");
 
     
     //--------------paginación-------------
@@ -92,10 +87,12 @@
     </form>
     <div class="formulario" align="center">
         <form action="registrar.php" method="get" >
-            <h1>registro  de nueva raza</h1>
+        <div class="bg">
+
+
+</div>
             <br>
            
-            Nombre de raza:
             <input type="varchar" name="nomR" required><br>
             
             <br><input  type="submit" class="button" name="Registrar" value="Registrar">
