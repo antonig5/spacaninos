@@ -117,16 +117,16 @@
             <td><?php echo $move->apellido_usu?></td>
             <td><?php echo /*$heren->passeord*/"XXXX"?></td>
             <td>
-                    <a class="btn btn-primary" href="./eliminar.php?id=<?php echo $move->id_usu?> & nomb=<?php echo $move->nombre_usu?>">
-					    eliminar
-                    </a>
-                </td>
-                <td>
-                    <a class="btn btn-primary" href="./editar.php?id=<?php echo $move->id_usu?> & nomb=<?php echo $move->nombre_usu?>">
-					    editar
-                    </a>
-                </td>
-            </tr>
+                <a class="btn btn-primary" href="./eliminar.php?id=<?php echo $move->id_usu?> & nomb=<?php echo $move->nombre_usu?> & email=<?php echo $move->correo?> & apel=<?php echo $move->apellido_usu?> & usua=<?php echo $move->usuario?>">
+					eliminar
+                </a>
+            </td>
+            <td>
+                <a class="btn btn-primary" href="./editar.php?id=<?php echo $move->id_usu?> & nomb=<?php echo $move->nombre_usu?> & email=<?php echo $move->correo?> & apel=<?php echo $move->apellido_usu?> & usua=<?php echo $move->usuario?>">
+					editar
+                </a>
+            </td>
+        </tr>
         <?php
         }
         ?>
@@ -134,7 +134,7 @@
     </table class="dos">
 		<td>
 			<a href="../admin/index.php" onmouseup="window.close()">
-                <input  class="btn btn-primary" type="button" value="cerrar" name="cerrar" >
+                <input  class="btn btn-primary" type="button" value="cerrar" name="cerrar">
             </a>
 		</td>
 	</table>  

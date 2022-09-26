@@ -1,5 +1,5 @@
 <?php
-    require('../conexiones/conexion.php');
+    require('../conexion/conexion.php');
 ?>
 
 <!DOCTYPE html>
@@ -32,7 +32,7 @@
                     <select id="tip" name="tip" scope="col">
                             <option >Seleccione..</option>
                             <?php
-		                        $sql= "SELECT * FROM tipo_usu WHERE id_tipo = 1"; 
+		                        $sql= "SELECT * FROM tipo_usu WHERE id_tipo =1"; 
 		                        $resultado=$base_de_datos->prepare($sql);
 		                        $resultado->execute(array());
 		                        while($registro=$resultado->fetch(PDO::FETCH_ASSOC)){
@@ -42,7 +42,7 @@
                                 }
                                 ?>
                     </select>
-                    <input type="text" name="usua" value="<?php echo $user?>" readonly>
+                    <input type="text" name="usua" value="<?php echo $user?>">
                     <input type="text" name="nomb" value="<?php echo $nombre?>" >
                     
                     <input type="teñxt" name="apel" value="<?php echo $apellido?>">
