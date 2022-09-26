@@ -52,10 +52,10 @@
         <a  href="index.php">Inicio</a></li>
         
         <li class="nav-item">
-            <a href="#">Recepcionistas</a></li>
+            <a href="../recepcionista/index.php">Recepcionistas</a></li>
     
         <li class="nav-item">
-        <a href="user.php">Usuarios</a></li>
+        <a href="./user.php">Usuarios</a></li>
         
         <li class="nav-item">
         <a href="#">Crear promociones</a></li>
@@ -70,7 +70,7 @@
         <a href="#">Detelle</a></li>
 
         <li class="nav-item">
-        <a href="#">Mascota</a></li>
+        <a href="../mascotas/tablaM.php">Mascota</a></li>
 
         <li class="nav-item">
         <a href="#">Servicios</a></li>
