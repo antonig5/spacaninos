@@ -20,6 +20,7 @@ if (isset($_GET['id_cliente'])) {
         $auxiliar = $_POST['auxiliar'];
         $cliente = $_SESSION['id'];
         $total = $_POST['price'];
+        $recepcionista = $_SESSION['cedu'];
         $numero = $_POST['numero'];
         $fecha = $_POST['fecha'];
         $insert = $base_de_datos->prepare('INSERT INTO temporal (numero_orden,id_servicio,id_cliente,id_auxiliar,total) VALUES (?,?,?,?,?)');
@@ -33,7 +34,7 @@ if (isset($_GET['id_cliente'])) {
         ////insert orden////
 
         $insert3 = $base_de_datos->prepare('INSERT INTO orden_servicio (numero_orden,id_cliente,id_auxiliar,id_recepcionista,total,fecha,id_estado) VALUES (?,?,?,?,?,?,?)');
-        $file = $insert3->execute(array($numero, $cliente, $auxiliar, 1, $total, $fecha, 1));
+        $file = $insert3->execute(array($numero, $cliente, $auxiliar, $recepcionista, $total, $fecha, 1));
 
 
 
