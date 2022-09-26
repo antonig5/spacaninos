@@ -1,5 +1,5 @@
 <?php
-    require('../conexion/conexion.php');
+    require('../conexiones/conexion.php');
 ?>
 
 <!DOCTYPE html>

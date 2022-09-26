@@ -1,5 +1,5 @@
 <?php
-  session_start();
+  
     require("../conexion/conexion.php");
 
     $consult="SELECT * FROM usuario,tipo_usu WHERE usuario.id_tipo=tipo_usu.id_tipo";
@@ -44,6 +44,7 @@
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Navbar</a>
     <li class="nav-item">
+
         <a  href="index.php">Inicio</a></li>
         
         <li class="nav-item">
@@ -53,54 +54,89 @@
         <a href="user.php">Usuarios</a></li>
         
         <li class="nav-item">
-        <a href="#">Clientes</a></li>
+        <a href="#">Crear promociones</a></li>
 
-       
+        <li class="nav-item">
+        <a href="../client/index.php">Clientes</a></li>
+
+        <li class="nav-item">
+        <a href="../auxiliar/index.php">Auxiliar</a></li>
+
+        <li class="nav-item">
+        <a href="#">Detelle</a></li>
+
+        <li class="nav-item">
+        <a href="#">Mascota</a></li>
+
+        <li class="nav-item">
+        <a href="#">Servicios</a></li>
+
+        <li class="nav-item">
+        <a href="#">Orden de servicios</a></li>
         
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
-        <li><a href="#">Cerrar sesion</a></li>      
+        <li><a href="../cerrar.php">Cerrar sesion</a></li>      
       </ul>
     </div>
   </div>
 </nav>
-
-
-        <form action="crearu.php">
-            <input class="btn btn-primary" type="submit" value="Crear users">
-        </form>
-       
-        <table class="table">
-            <tr>
-                <th>Codigo</th>
-                <th>Tipo de usuario</th>
-                <th>Usuario</th>
-                <th>Nombre</th>
-                <th>Apellido</th>
-                <th>Clave</th>
-                <th>Accion</th>
-            </tr>
-            <?php
-            foreach ($camb as $user) {
-                ?>
-                <tr>
-                    <td><?php echo $user->id_usu?></td>
-                    <td><?php echo $user->tipo?></td>
-                    <td><?php echo $user->usuario?></td>
-                    <td><?php echo $user->nombre_usu?></td>
-                    <td><?php echo $user->apellido_usu?></td>
-                    <td><?php echo /*$heren->passeord*/"XXXX"?></td>
-                    <td><a id="a" href="editar.php?id=<?php echo $user->id_usu?> &tip=<?php echo $user->id_tipo ?> &tip1=<?php echo $user->tipo?> &nomb=<?php echo $user->nombre_usu?> &apel=<?php echo $user->apellido_usu?> &usua=<?php echo $user->usuario?> &email=<?php echo $user->correo?> "><input class="btn btn-primary" type="submit" value="Editar"></a></td>
-                </tr>
-                <?php
-            }
+<form method="post" action="buscar.php">
+    <div id="nim">
+        <a href="crearu.php">
+            <button class="btn btn-primary" type="button">
+                Crear users
+            </button>
+        </a>
+    </div>
+    <input  width="520px"  type="search" name="busca"  id="" placeholder="Buscar"> 
+    <button class="btn btn-primary">buscar</button>
+    <br> <br>
+    <div id="tag">
+    <table  class="table">
+        <tr>
+            <th>Codigo</th>
+            <th>Tipo de usuario</th>
+            <th>Usuario</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Clave</th>
+            <th colspan="3">Accion</th>
+        </tr>
+        <?php
+            foreach ($camb as $move) {
         ?>
-        <tr></tr>
-        </table>
-
-
+        <tr>
+            <td><?php echo $move->id_usu?></td>
+            <td><?php echo $move->tipo?></td>
+            <td><?php echo $move->usuario?></td>
+            <td><?php echo $move->nombre_usu?></td>
+            <td><?php echo $move->apellido_usu?></td>
+            <td><?php echo /*$heren->passeord*/"XXXX"?></td>
+            <td>
+                    <a class="btn btn-primary" href="./eliminar.php?id=<?php echo $move->id_usu?> & nomb=<?php echo $move->nombre_usu?>">
+					    eliminar
+                    </a>
+                </td>
+                <td>
+                    <a class="btn btn-primary" href="./editar.php?id=<?php echo $move->id_usu?> & nomb=<?php echo $move->nombre_usu?>">
+					    editar
+                    </a>
+                </td>
+            </tr>
+        <?php
+        }
+        ?>
+    </div>
+    </table class="dos">
+		<td>
+			<a href="../admin/index.php" onmouseup="window.close()">
+                <input  class="btn btn-primary" type="button" value="cerrar" name="cerrar" >
+            </a>
+		</td>
+	</table>  
 </body>
 </html>

@@ -14,7 +14,8 @@
 <body>
 <form action="crear.php" method="get">
     <div>
-       
+        <input type="text" name="id" placeholder="Cedula" >
+
                     <select id="tip" name="tip" scope="col">
   
                             <?php
@@ -28,45 +29,15 @@
                                 }
                                 ?>
                     </select>
-                    <input type="text" id="user" name="usua" placeholder="Usuario">
+                    <input type="text" name="usua" placeholder="Usuario">
                     <input type="text" name="clave" placeholder="Contraseña">
                     <input type="text" name="nomb" placeholder="Nombre" >
                     <input type="teñxt" name="apel" placeholder="Apellido">
                     <input type="text" name="email" placeholder="Correo">
-                    <input type="submit" class="btn btn-primary" id="ingresar" name="mod" value="Crear">
+                    <input type="submit" class="btn btn-primary" name="mod" value="Crear">
                     
                   
     </div>
     </form>
-
-    <script>
-      var btn = document.getElementById('ingresar');
-var clave = document.getElementById('id');
-var usuario = document.getElementById('user');
-
-
-
-
-btn.addEventListener('click', function(evt){
-
-      if(clave.value === ''){
-
-          alert('El campo esta vacio')
-          evt.preventDefault();
-          return false;
-
-      }else if(usuario.value === ''){
-
-      alert('El campo esta vacio')
-          evt.preventDefault();
-          return false;
-
-      }
-
-
-});
-
-
-    </script>
 </body>
 </html>
