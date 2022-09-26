@@ -4,22 +4,19 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="#">
     <title>Panel  de  razas de  perros</title>
+    <link href="../css/tablarrr.css" rel="stylesheet" type="text/css">
+
 </head>
 <header>
     
     <nav>
-        <ul>
-            <li><a href="#">#</a></li>
-            <li><a href="#">#</a></li>
-            <li><a href="#">#</a></li>
-            <li></li>
-        </ul>
+ 
     </nav>
 </header>
 <body>
     <?php
     
-    include("../conexiones/conexion.php");
+    include("../conexion/conexion.php");
 
     
     //--------------paginación-------------

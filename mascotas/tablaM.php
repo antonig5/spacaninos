@@ -4,22 +4,19 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="#">
     <title>Panel  de  registros de mascotas</title>
+    <link href="../css/tablam.css" rel="stylesheet" type="text/css">
+
 </head>
 <header>
     
     <nav>
-        <ul>
-            <li><a href="#">#</a></li>
-            <li><a href="#">#</a></li>
-            <li><a href="#">#</a></li>
-            <li></li>
-        </ul>
+        
     </nav>
 </header>
 <body>
     <?php
     
-    include("../conexiones/conexion.php");
+    include("../conexion/conexion.php");
 
     
     //--------------paginación-------------
@@ -103,10 +100,10 @@
             <h1>registre  su  mascota</h1>
             <br>
             
-            Ingrese su  nombre:
+            <a>Ingrese su  nombre:</a>
             <input type="varchar" name="nomM" required><br>
             
-            Seleccione su raza:
+            <a>Seleccione su raza:</a>
             <select name="mascota">
 			<?php
             $sql= "SELECT * FROM raza"; 
@@ -120,9 +117,9 @@
 				}
             ?>
             </select><br>
-            Ingrese el color:
+             <a> Ingrese el color:</a>
             <input type="varchar" name="colorM" required><br>
-            Seleccione su cliente:
+            <a>Seleccione su cliente:</a>
             <select name="cliente">
 			<?php
             $sql3= "SELECT * FROM clientes"; 

@@ -6,7 +6,7 @@
 </head>
 <body>
 <?php
-require("../conexiones/conexion.php");
+require("../conexion/conexion.php");
 
     $id=$_GET["id"];
     $raza=$_GET["raza"];

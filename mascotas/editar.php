@@ -4,6 +4,9 @@
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="../css/editarusu.css">
 	<title>Editar usuario</title>
+	<link href="../css/editarregistro.css" rel="stylesheet" type="text/css">
+
+
 </head>
 <body>
 <?php
@@ -24,11 +27,11 @@ try{
 	if($registro2=$resultado->fetch(PDO::FETCH_ASSOC)){
 		
 		?>
-	        <h4 align="center">Editar REGISTRO</h4>	
-		<form action="update.php" method="GET">
-        	<h5>Identificación de mascotas:</h5><br>
+	        <h1 align="center">EDITAR REGISTRO</h1>	
+		<form action="update.php" method="GET" align="center">
+        	<a>Identificación de mascotas:</a><br>
 				<input type="text" class="usua" readonly name="id" value="<?php echo $registro2['id_mascota']?>">
-            <h5>Tipo de raza :</h5><br>
+            <a>Tipo de raza :</a><br>
 			<input type="text" class="usua" readonly value="<?php echo $registro2['id_raza']?>">
 			<select name="raza" id="" scope="col">
 					<option valu="text">seleccione</option>
@@ -43,7 +46,7 @@ try{
 			}
 			?>
 			</select><br>
-            <h5>Seleccione su  cliente :</h5><br>
+            <a>Seleccione su  cliente :</a><br>
 			<input type="text" class="usua" readonly  value="<?php echo $registro2['id_cliente']?>">
 			<select name="cliente" id="" scope="col">
 					<option valu="text">seleccione</option>
@@ -58,7 +61,7 @@ try{
 			}
 			?>
 			</select><br>
-        	<h5>Nombre de mascota:</h5><br>
+        	<a>Nombre de mascota:</a><br>
 				<input type="text" class="usua" name="nomM" value="<?php echo $registro2['nombre_mascota']?>">
 
 				<h5>Color de su  mascota:</h5><br>
