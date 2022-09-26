@@ -17,7 +17,7 @@ $datos = $orden->fetchAll(PDO::FETCH_ASSOC);
 </head>
 
 <body>
-    <a href="../detalle/index.php">Crear orden</a>
+    <h3 href="../detalle/index.php">Crear orden</h3>
     <table>
         <thead>
             <tr>
