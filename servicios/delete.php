@@ -1,7 +1,7 @@
 
     
 <?php
-include("../conexiones/conexion.php");
+include("../conexion/conexion.php");
 $id= $_GET['id'];
 
 $eliminar = "DELETE  FROM servicios WHERE id_servicio = '$id' ";
