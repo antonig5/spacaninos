@@ -1,6 +1,6 @@
 <?php
-  
-    require("../conexiones/conexion.php");
+  session_start();
+    require("../conexion/conexion.php");
 
     $consult="SELECT * FROM usuario,tipo_usu WHERE usuario.id_tipo=tipo_usu.id_tipo";
     $rest= $base_de_datos->prepare($consult);
@@ -53,7 +53,9 @@
         <a href="user.php">Usuarios</a></li>
         
         <li class="nav-item">
-        <a href="#">Crear promociones</a></li>
+        <a href="#">Clientes</a></li>
+
+       
         
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -66,10 +68,7 @@
   </div>
 </nav>
 
-    <?php
-        session_start();
-        require('../conexiones/conexion.php');
-        ?>
+
         <form action="crearu.php">
             <input class="btn btn-primary" type="submit" value="Crear users">
         </form>

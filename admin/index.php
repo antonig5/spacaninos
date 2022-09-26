@@ -1,7 +1,7 @@
 <?php
 
   session_start();
-  require("../conexiones/conexion.php");
+  require("../conexion/conexion.php");
 
   $tip=$_SESSION['tip'];
   $nombre=$_SESSION['nomb'];
