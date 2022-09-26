@@ -20,7 +20,6 @@ if (isset($_GET['documento'])) {
 ?>
 
 
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,18 +29,25 @@ if (isset($_GET['documento'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="../css/detalle.css" rel="stylesheet" type="text/css">
+
 </head>
 
+
+
 <body>
-<div class="container">
+    <div class="container">
+
     <form action="" method="get">
-    <div class="form-box">
-        <label for="documento" class="form-label">Ingrese su documento</label>
-        <input type="number" class="form-input"name="documento">
+        <div class="form-box">
+
+     <input type="documento" class="form-input">
+     <label for="" class="form-label">Documento</label>    
 </div>
-        <button type="submit">Validar</button>
+    
+     <button type="submit">Valida</button>
     </form>
-</div>
+
+    </div>
     <script>
 
     </script>
