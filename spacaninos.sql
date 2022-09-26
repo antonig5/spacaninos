@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Servidor: localhost
--- Tiempo de generación: 25-09-2022 a las 10:19:13
--- Versión del servidor: 8.0.30
--- Versión de PHP: 7.4.30
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 26-09-2022 a las 21:16:39
+-- Versión del servidor: 10.4.24-MariaDB
+-- Versión de PHP: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `spacanino`
+-- Base de datos: `spacaninos`
 --
 
 -- --------------------------------------------------------
@@ -28,17 +28,10 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `auxiliar` (
-  `id_auxiliar` int NOT NULL,
+  `id_auxiliar` int(11) NOT NULL,
   `nombre_auxiliar` varchar(20) NOT NULL,
   `apellido_auxiliar` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Volcado de datos para la tabla `auxiliar`
---
-
-INSERT INTO `auxiliar` (`id_auxiliar`, `nombre_auxiliar`, `apellido_auxiliar`) VALUES
-(1, 'marco', 'nino');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -47,19 +40,20 @@ INSERT INTO `auxiliar` (`id_auxiliar`, `nombre_auxiliar`, `apellido_auxiliar`) V
 --
 
 CREATE TABLE `clientes` (
-  `id_cliente` int NOT NULL,
+  `id_cliente` int(11) NOT NULL,
   `nombre_cliente` varchar(20) NOT NULL,
   `apellido_cliente` varchar(20) NOT NULL,
   `direccion` varchar(20) NOT NULL,
-  `celular` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `celular` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `clientes`
 --
 
 INSERT INTO `clientes` (`id_cliente`, `nombre_cliente`, `apellido_cliente`, `direccion`, `celular`) VALUES
-(100688, 'jose', 'martinez', 'casa12', 1234567890);
+(123, 'Ana', 'Gutierrez', 'calle 4 vereda junta', 31222323),
+(234, 'Natalia', 'Perez', 'calle 20', 3214444);
 
 -- --------------------------------------------------------
 
@@ -68,23 +62,11 @@ INSERT INTO `clientes` (`id_cliente`, `nombre_cliente`, `apellido_cliente`, `dir
 --
 
 CREATE TABLE `detalle` (
-  `id_detalle` int NOT NULL,
-  `numero_orden` int NOT NULL,
-  `id_servicio` int NOT NULL,
-  `id_cliente` int NOT NULL,
-  `id_auxiliar` int NOT NULL,
-  `total` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Volcado de datos para la tabla `detalle`
---
-
-INSERT INTO `detalle` (`id_detalle`, `numero_orden`, `id_servicio`, `id_cliente`, `id_auxiliar`, `total`) VALUES
-(1, 1685575658, 2, 100688, 1, 50000),
-(2, 102945773, 2, 100688, 1, 50000),
-(3, 1117421008, 2, 100688, 1, 50000),
-(7, 1149248930, 2, 100688, 1, 50000);
+  `id_detalle` int(11) NOT NULL,
+  `numero_orden` int(11) NOT NULL,
+  `id_servicio` int(11) NOT NULL,
+  `total` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -93,17 +75,9 @@ INSERT INTO `detalle` (`id_detalle`, `numero_orden`, `id_servicio`, `id_cliente`
 --
 
 CREATE TABLE `estado` (
-  `id_estado` int NOT NULL,
+  `id_estado` int(11) NOT NULL,
   `nombre_estado` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Volcado de datos para la tabla `estado`
---
-
-INSERT INTO `estado` (`id_estado`, `nombre_estado`) VALUES
-(1, 'activado'),
-(2, 'desactivado');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -112,12 +86,19 @@ INSERT INTO `estado` (`id_estado`, `nombre_estado`) VALUES
 --
 
 CREATE TABLE `mascota` (
-  `id_mascota` int NOT NULL,
-  `id_raza` int NOT NULL,
-  `id_cliente` int NOT NULL,
+  `id_mascota` int(11) NOT NULL,
+  `id_raza` int(11) NOT NULL,
+  `id_cliente` int(11) NOT NULL,
   `nombre_mascota` varchar(20) NOT NULL,
   `color` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `mascota`
+--
+
+INSERT INTO `mascota` (`id_mascota`, `id_raza`, `id_cliente`, `nombre_mascota`, `color`) VALUES
+(2, 2, 123, 'Sam', 'cafe');
 
 -- --------------------------------------------------------
 
@@ -126,22 +107,13 @@ CREATE TABLE `mascota` (
 --
 
 CREATE TABLE `orden_servicio` (
-  `numero_orden` int NOT NULL,
-  `id_cliente` int NOT NULL,
-  `id_auxiliar` int NOT NULL,
-  `id_recepcionista` int NOT NULL,
-  `total` int NOT NULL,
-  `fecha` date NOT NULL,
-  `id_estado` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Volcado de datos para la tabla `orden_servicio`
---
-
-INSERT INTO `orden_servicio` (`numero_orden`, `id_cliente`, `id_auxiliar`, `id_recepcionista`, `total`, `fecha`, `id_estado`) VALUES
-(1117421008, 100688, 1, 1, 50000, '2022-09-25', 1),
-(1149248930, 100688, 1, 1, 50000, '2022-09-25', 1);
+  `numero_orden` int(11) NOT NULL,
+  `id_cliente` int(11) NOT NULL,
+  `id_auxiliar` int(11) NOT NULL,
+  `id_recepcionista` int(11) NOT NULL,
+  `fecha` date NOT NULL DEFAULT current_timestamp(),
+  `total` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -150,9 +122,17 @@ INSERT INTO `orden_servicio` (`numero_orden`, `id_cliente`, `id_auxiliar`, `id_r
 --
 
 CREATE TABLE `raza` (
-  `id_raza` int NOT NULL,
+  `id_raza` int(11) NOT NULL,
   `nombre_raza` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `raza`
+--
+
+INSERT INTO `raza` (`id_raza`, `nombre_raza`) VALUES
+(2, 'PitbullP'),
+(3, 'pinchi');
 
 -- --------------------------------------------------------
 
@@ -161,17 +141,10 @@ CREATE TABLE `raza` (
 --
 
 CREATE TABLE `recepcionista` (
-  `id_recepcionista` int NOT NULL,
+  `id_recepcionista` int(11) NOT NULL,
   `nombre_recepcionista` varchar(20) NOT NULL,
   `apellido_recepcionista` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Volcado de datos para la tabla `recepcionista`
---
-
-INSERT INTO `recepcionista` (`id_recepcionista`, `nombre_recepcionista`, `apellido_recepcionista`) VALUES
-(1, 'paco', 'gomez');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -180,18 +153,10 @@ INSERT INTO `recepcionista` (`id_recepcionista`, `nombre_recepcionista`, `apelli
 --
 
 CREATE TABLE `servicios` (
-  `id_servicio` int NOT NULL,
+  `id_servicio` int(11) NOT NULL,
   `nombre_servicio` varchar(20) NOT NULL,
-  `precio_servicio` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Volcado de datos para la tabla `servicios`
---
-
-INSERT INTO `servicios` (`id_servicio`, `nombre_servicio`, `precio_servicio`) VALUES
-(1, 'uñas', 200000),
-(2, 'lavado', 50000);
+  `precio_servicio` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -200,20 +165,11 @@ INSERT INTO `servicios` (`id_servicio`, `nombre_servicio`, `precio_servicio`) VA
 --
 
 CREATE TABLE `temporal` (
-  `id_detalle` int NOT NULL,
-  `numero_orden` int NOT NULL,
-  `id_servicio` int NOT NULL,
-  `id_cliente` int NOT NULL,
-  `id_auxiliar` int NOT NULL,
-  `total` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Volcado de datos para la tabla `temporal`
---
-
-INSERT INTO `temporal` (`id_detalle`, `numero_orden`, `id_servicio`, `id_cliente`, `id_auxiliar`, `total`) VALUES
-(4, 1149248930, 2, 100688, 1, 50000);
+  `id_detalle` int(11) NOT NULL,
+  `numero_orden` int(11) NOT NULL,
+  `id_servicio` int(11) NOT NULL,
+  `total` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -222,9 +178,16 @@ INSERT INTO `temporal` (`id_detalle`, `numero_orden`, `id_servicio`, `id_cliente
 --
 
 CREATE TABLE `tipo_usu` (
-  `id_tipo` int NOT NULL,
+  `id_tipo` int(11) NOT NULL,
   `tipo` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `tipo_usu`
+--
+
+INSERT INTO `tipo_usu` (`id_tipo`, `tipo`) VALUES
+(1, 'Administrador');
 
 -- --------------------------------------------------------
 
@@ -233,14 +196,22 @@ CREATE TABLE `tipo_usu` (
 --
 
 CREATE TABLE `usuario` (
-  `id_usu` int NOT NULL,
-  `id_tipo` int NOT NULL,
+  `id_usu` int(11) NOT NULL,
+  `id_tipo` int(11) NOT NULL,
   `nombre_usu` varchar(20) NOT NULL,
   `apellido_usu` varchar(20) NOT NULL,
   `usuario` varchar(20) NOT NULL,
   `correo` varchar(20) NOT NULL,
   `clave` varchar(500) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `usuario`
+--
+
+INSERT INTO `usuario` (`id_usu`, `id_tipo`, `nombre_usu`, `apellido_usu`, `usuario`, `correo`, `clave`) VALUES
+(1, 1, 'Maycol', 'Rivera', 'mycol12', 'ffgg@ggg', '$2y$10$JIg77YRSUx.1eUKWh1X8W.aCiefJvIJK3qKp91j2oyUe9uxryAaye'),
+(2, 1, 'Juan', 'Saldariaga', 'Juan12', 'saldarriaga14@msn.ed', '$2y$10$guRB00IorOkhQTK3xujFS.lcMbgXsJqyrD6ruclKQjOeXjoFWwsSm');
 
 --
 -- Índices para tablas volcadas
@@ -263,7 +234,8 @@ ALTER TABLE `clientes`
 --
 ALTER TABLE `detalle`
   ADD PRIMARY KEY (`id_detalle`),
-  ADD KEY `orden` (`numero_orden`);
+  ADD KEY `orden` (`numero_orden`),
+  ADD KEY `servicio` (`id_servicio`);
 
 --
 -- Indices de la tabla `estado`
@@ -311,6 +283,7 @@ ALTER TABLE `servicios`
 --
 ALTER TABLE `temporal`
   ADD PRIMARY KEY (`id_detalle`),
+  ADD KEY `id_servicio` (`id_servicio`),
   ADD KEY `numero_orden` (`numero_orden`);
 
 --
@@ -334,29 +307,48 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `detalle`
 --
 ALTER TABLE `detalle`
-  MODIFY `id_detalle` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_detalle` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `estado`
+-- AUTO_INCREMENT de la tabla `mascota`
 --
-ALTER TABLE `estado`
-  MODIFY `id_estado` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+ALTER TABLE `mascota`
+  MODIFY `id_mascota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT de la tabla `servicios`
+-- AUTO_INCREMENT de la tabla `orden_servicio`
 --
-ALTER TABLE `servicios`
-  MODIFY `id_servicio` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+ALTER TABLE `orden_servicio`
+  MODIFY `numero_orden` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `raza`
+--
+ALTER TABLE `raza`
+  MODIFY `id_raza` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `temporal`
 --
 ALTER TABLE `temporal`
-  MODIFY `id_detalle` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_detalle` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  MODIFY `id_usu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Restricciones para tablas volcadas
 --
+
+--
+-- Filtros para la tabla `detalle`
+--
+ALTER TABLE `detalle`
+  ADD CONSTRAINT `orden` FOREIGN KEY (`numero_orden`) REFERENCES `orden_servicio` (`numero_orden`),
+  ADD CONSTRAINT `servicio` FOREIGN KEY (`id_servicio`) REFERENCES `servicios` (`id_servicio`);
 
 --
 -- Filtros para la tabla `mascota`
@@ -372,6 +364,13 @@ ALTER TABLE `orden_servicio`
   ADD CONSTRAINT `auxiliar` FOREIGN KEY (`id_auxiliar`) REFERENCES `auxiliar` (`id_auxiliar`),
   ADD CONSTRAINT `orden_servicio_ibfk_1` FOREIGN KEY (`id_cliente`) REFERENCES `clientes` (`id_cliente`),
   ADD CONSTRAINT `recepcionosta` FOREIGN KEY (`id_recepcionista`) REFERENCES `recepcionista` (`id_recepcionista`);
+
+--
+-- Filtros para la tabla `temporal`
+--
+ALTER TABLE `temporal`
+  ADD CONSTRAINT `temporal_ibfk_1` FOREIGN KEY (`id_servicio`) REFERENCES `servicios` (`id_servicio`),
+  ADD CONSTRAINT `temporal_ibfk_2` FOREIGN KEY (`numero_orden`) REFERENCES `orden_servicio` (`numero_orden`);
 
 --
 -- Filtros para la tabla `usuario`
