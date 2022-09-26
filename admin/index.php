@@ -67,7 +67,7 @@
         <a href="../auxiliar/index.php">Auxiliar</a></li>
 
         <li class="nav-item">
-        <a href="#">Detelle</a></li>
+        <a href="#">Detalle</a></li>
 
         <li class="nav-item">
         <a href="../mascotas/tablaM.php">Mascota</a></li>
