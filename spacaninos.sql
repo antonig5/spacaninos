@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-09-2022 a las 21:16:39
--- Versión del servidor: 10.4.24-MariaDB
--- Versión de PHP: 8.1.6
+-- Tiempo de generación: 27-09-2022 a las 19:39:04
+-- Versión del servidor: 10.4.18-MariaDB
+-- Versión de PHP: 7.3.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -65,6 +65,8 @@ CREATE TABLE `detalle` (
   `id_detalle` int(11) NOT NULL,
   `numero_orden` int(11) NOT NULL,
   `id_servicio` int(11) NOT NULL,
+  `id_cliente` int(11) NOT NULL,
+  `id_auxiliar` int(11) NOT NULL,
   `total` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -158,6 +160,14 @@ CREATE TABLE `servicios` (
   `precio_servicio` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `servicios`
+--
+
+INSERT INTO `servicios` (`id_servicio`, `nombre_servicio`, `precio_servicio`) VALUES
+(1, 'lavado', 2000),
+(2, 'uñas', 10000);
+
 -- --------------------------------------------------------
 
 --
@@ -168,6 +178,8 @@ CREATE TABLE `temporal` (
   `id_detalle` int(11) NOT NULL,
   `numero_orden` int(11) NOT NULL,
   `id_servicio` int(11) NOT NULL,
+  `id_cliente` int(11) NOT NULL,
+  `id_auxiliar` int(11) NOT NULL,
   `total` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -310,16 +322,16 @@ ALTER TABLE `detalle`
   MODIFY `id_detalle` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT de la tabla `estado`
+--
+ALTER TABLE `estado`
+  MODIFY `id_estado` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `mascota`
 --
 ALTER TABLE `mascota`
   MODIFY `id_mascota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT de la tabla `orden_servicio`
---
-ALTER TABLE `orden_servicio`
-  MODIFY `numero_orden` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `raza`
@@ -328,10 +340,22 @@ ALTER TABLE `raza`
   MODIFY `id_raza` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT de la tabla `servicios`
+--
+ALTER TABLE `servicios`
+  MODIFY `id_servicio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT de la tabla `temporal`
 --
 ALTER TABLE `temporal`
   MODIFY `id_detalle` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `tipo_usu`
+--
+ALTER TABLE `tipo_usu`
+  MODIFY `id_tipo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
