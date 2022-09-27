@@ -58,16 +58,13 @@
     <a class="navbar-brand" href="#">Navbar</a>
     <li class="nav-item">
 
-        <a  href="../admin//index.php">Inicio</a></li>
+        <a  href="../admin/index.php">Inicio</a></li>
         
         <li class="nav-item">
-            <a href="../recepcionista/index.php">Recepcionistas</a></li>
+            <a href="./index.php">Recepcionistas</a></li>
     
         <li class="nav-item">
         <a href="../admin/user.php">Usuarios</a></li>
-        
-        <li class="nav-item">
-        <a href="#">Crear promociones</a></li>
 
         <li class="nav-item">
         <a href="../client/index.php">Clientes</a></li>
@@ -76,16 +73,13 @@
         <a href="../auxiliar/index.php">Auxiliar</a></li>
 
         <li class="nav-item">
-        <a href="#">Detelle</a></li>
-
-        <li class="nav-item">
         <a href="../mascotas/tablaM.php">Mascota</a></li>
 
         <li class="nav-item">
-        <a href="#">Servicios</a></li>
+        <a href="../servicios/tablaS.php">Servicios</a></li>
 
         <li class="nav-item">
-        <a href="#">Orden de servicios</a></li>
+        <a href="../orden/index.php">Orden de servicios</a></li>
         
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
