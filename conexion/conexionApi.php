@@ -12,9 +12,9 @@ class Database
 
     {
         $this->host = 'localhost';
-        $this->db = 'spacanino';
+        $this->db = 'spacaninos';
         $this->user = 'root';
-        $this->password = '12345678';
+        $this->password = '';
         $this->charset  = 'utf8mb4';
     }
 
