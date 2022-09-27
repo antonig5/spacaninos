@@ -70,7 +70,7 @@
         <a href="../servicios/tablaS.php">Servicios</a></li>
 
         <li class="nav-item">
-        <a href="../orden/index.php">Orden de servicios</a></li>
+        <a href="../detalle/index.php">Orden de servicios</a></li>
         
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
