@@ -1,7 +1,7 @@
 <?php
 
 
-include_once 'conexiones/conexion.php'  ;
+include_once 'conexion/conexion.php'  ;
 
 ?>
 

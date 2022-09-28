@@ -1,7 +1,7 @@
 
 <?php
     session_start();
-    require("conexiones/conexion.php");
+    require("conexion/conexion.php");
 
     if (!isset($_GET['username']) || !isset($_GET['envia'])) {
         header("Location: iniciar.php");

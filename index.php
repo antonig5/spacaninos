@@ -32,7 +32,6 @@
           </a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="iniciar.php">Iniciar Sesion</a></li>
-            <li><a class="dropdown-item" href="registrarse.php">Registrarse</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#">Mas informacion</a></li>
           </ul>
