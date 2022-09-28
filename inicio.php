@@ -6,16 +6,16 @@
     if (!isset($_GET['username']) || !isset($_GET['envia'])) {
         header("Location: iniciar.php");
     }
-    elseif (isset($_GET['envia'])) {
+    elseif (isset($_GET['envia'])){
         try {
 
             $inicio= htmlentities(addslashes($_GET['username']));
             $clave= htmlentities(addslashes($_GET['clave']));
             $conta=0;
 
-            $sentencia="SELECT * FROM usuario,tipo_usu WHERE usuario=:usu and usuario.id_tipo=tipo_usu.id_tipo";
+            $sentencia="SELECT * FROM usuario,tipo_usu WHERE id_usu=:id || usuario=:usu and usuario.id_tipo=tipo_usu.id_tipo";
             $select=$base_de_datos->prepare($sentencia);
-            $select->execute(array(":usu"=>$inicio));
+            $select->execute(array(":id"=>$inicio,":usu"=>$inicio));
             
             if ($les=$select->fetch(PDO::FETCH_ASSOC)) {
                 if (password_verify($clave, $les['clave'])) {
@@ -39,16 +39,16 @@
                 }
             }
             if ($conta>0) {
-                if ($_SESSION['tipo'] == 1) {
+                if ($_SESSION['tipo'] == 1){
                     header("Location: admin/index.php");
                 }
-                else if ($_SESSION['tipo'] == 2) {
+                else if ($_SESSION['tipo'] == 2){
                     header("Location: auxiliar/index.php");
                 }
-                else if ($_SESSION['tipo'] == 3) {
+                else if ($_SESSION['tipo'] == 3){
                     header("Location: client/index.php");
                 }
-                else if ($_SESSION['tipo'] == 4) {
+                else if ($_SESSION['tipo'] == 4){
                     header("Location: recepcionista/index.php");
                 }
             }
