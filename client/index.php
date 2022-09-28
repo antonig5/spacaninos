@@ -63,7 +63,7 @@
         <a href="../recepcionista/index.php">Recepcionistas</a></li>
     
         <li class="nav-item">
-        <a href="./user.php">Usuarios</a></li>
+        <a href="../admin/user.php">Usuarios</a></li>
 
         <li class="nav-item">
         <a href="../client/index.php">Clientes</a></li>
