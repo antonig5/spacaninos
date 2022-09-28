@@ -136,7 +136,7 @@
     </div>
     </table class="dos">
 		<td>
-			<a href="../administrador/index.php" onmouseup="window.close()">
+			<a href="../admin" onmouseup="window.close()">
                 <input   class="btn btn-primary" type="button" value="cerrar" name="cerrar" >
             </a>
 		</td>
