@@ -133,7 +133,7 @@
             <td><?php echo $move->nombre_mascota?></td>
             <td><?php echo $move->color?></td>
             <td>
-                    <a class="btn btn-primary" href="eliminar.php?id=<?php echo $move->id_mascotas?> & nomb=<?php echo $move->nombre_mascota?>">
+                    <a class="btn btn-primary" href="eliminar.php?id=<?php echo $move->id_mascota?> & nomb=<?php echo $move->nombre_mascota?>">
 					    eliminar
                     </a>
                 </td>
