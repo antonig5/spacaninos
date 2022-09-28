@@ -56,7 +56,7 @@
         <a  href="../admin/index.php">Inicio</a></li>
         
         <li class="nav-item">
-            <a href="../recepcionista/index.php">Recepcionistas</a></li>
+        <a href="../recepcionista/index.php">Recepcionistas</a></li>
     
         <li class="nav-item">
         <a href="../admin/user.php">Usuarios</a></li>
@@ -65,10 +65,13 @@
         <a href="../client/index.php">Clientes</a></li>
 
         <li class="nav-item">
-        <a href="../auxiliar/index.php">Auxiliar</a></li>
+        <a href="../auxiliar/index.php">Auxiliares</a></li>
+    
+        <li class="nav-item">
+        <a href="../mascotas/tablaM.php">Mascotas</a></li>
 
         <li class="nav-item">
-        <a href="../mascotas/tablaM.php">Mascota</a></li>
+        <a href="../razas/index.php">Razas</a></li>
 
         <li class="nav-item">
         <a href="../servicios/tablaS.php">Servicios</a></li>
@@ -112,17 +115,23 @@
         ?>
         <?php
 			$idp=$move->id_raza;
-			$sql="SELECT * FROM mascota WHERE id_raza=:id";
+			$sql="SELECT * FROM raza WHERE id_raza=:id";
 			$resultado1=$base_de_datos->prepare($sql);
 			$resultado1->execute(array(":id"=>$idp));
 			$registro1=$resultado1->fetch(PDO::FETCH_ASSOC);
+
+            $ide=$move->id_cliente;
+			$sql="SELECT * FROM clientes WHERE id_cliente=:id";
+			$resultado1=$base_de_datos->prepare($sql);
+			$resultado1->execute(array(":id"=>$ide));
+			$registro2=$resultado1->fetch(PDO::FETCH_ASSOC);
 		?> 
          <tr>
             <td><?php echo $move->id_mascota;?></td>
-            <td><?php echo $registro1['id_raza'];?></td>
-            <td><?php echo $move->apellido_cliente?></td>
-            <td><?php echo $move->celular?></td>
-            <td><?php echo $move->direccion?></td>
+            <td><?php echo $registro1['nombre_raza'];?></td>
+            <td><?php echo $registro2['nombre_cliente'];?></td>
+            <td><?php echo $move->nombre_mascota?></td>
+            <td><?php echo $move->color?></td>
             <td>
                     <a class="btn btn-primary" href="eliminar.php?id=<?php echo $move->id_cliente?> & nomb=<?php echo $move->nombre_cliente?>">
 					    eliminar
@@ -156,11 +165,7 @@
                         </td>
                     </tr>
 
-                    <?php
-			            endforeach;
-		
-			        ?>
-  
+                    
         </table>
 
     </form>
