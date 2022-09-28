@@ -133,12 +133,12 @@
             <td><?php echo $move->nombre_mascota?></td>
             <td><?php echo $move->color?></td>
             <td>
-                    <a class="btn btn-primary" href="eliminar.php?id=<?php echo $move->id_cliente?> & nomb=<?php echo $move->nombre_cliente?>">
+                    <a class="btn btn-primary" href="eliminar.php?id=<?php echo $move->id_mascotas?> & nomb=<?php echo $move->nombre_mascota?>">
 					    eliminar
                     </a>
                 </td>
                 <td>
-                    <a class="btn btn-primary" href="modificar.php?id=<?php echo $move->id_cliente?> & nomb=<?php echo $move->nombre_cliente?>">
+                    <a class="btn btn-primary" href="modificar.php?id=<?php echo $move->id_mascota?> & nomb=<?php echo $move->nombre_mascota?>">
 					    editar
                     </a>
                 </td>
@@ -148,70 +148,15 @@
         ?>
     </div>
     </table 
-
-
-/* */
-           
-                
-                        <td>
-				            <a href="delete.php?id=<?php echo $mascota->id_mascota?>" class="elimina">
-					            <input type="button"  name="elimina" value="Eliminar">
-				            </a>
-                        </td>
-                        <td>
-				            <a href="editar.php?id=<?php echo $mascota->id_mascota?>" class="editar">
-					            <input type="button"  name="editar" value="Editar">
-				            </a>
-                        </td>
-                    </tr>
-
-                    
-        </table>
-
-    </form>
-    <div class="formulario" align="center">
-        <form action="registrar.php" method="get" >
-            <h1>registre  su  mascota</h1>
-            <br>
-            
-            <a>Ingrese su  nombre:</a>
-            <input type="varchar" name="nomM" required><br>
-            
-            <a>Seleccione su raza:</a>
-            <select name="mascota">
-			<?php
-            $sql= "SELECT * FROM raza"; 
-			$resultado=$base_de_datos->prepare($sql);
-			$resultado->execute(array());
-			while($registro=$resultado->fetch(PDO::FETCH_ASSOC)){
-			?>
-			?>
-            <option value="<?php echo $registro['id_raza'];?>"><?php echo $registro['nombre_raza']?></option>
-				<?php
-				}
-            ?>
-            </select><br>
-             <a> Ingrese el color:</a>
-            <input type="varchar" name="colorM" required><br>
-            <a>Seleccione su cliente:</a>
-            <select name="cliente">
-			<?php
-            $sql3= "SELECT * FROM clientes"; 
-			$res=$base_de_datos->prepare($sql3);
-			$res->execute(array());
-			while($reg=$res->fetch(PDO::FETCH_ASSOC)){
-			?>
-            <option value="<?php echo $reg['id_cliente'];?>"><?php echo $reg['nombre_cliente']?></option>
-				<?php
-				}
-            ?>
-            
-            <br><input  type="submit" class="button" name="Registrar" value="Registrar">
-            
-
-        </form>
-    </div>
-    <script src="confirmacion.js"></script>
+    </table class="dos">
+		<td>
+			<a href="../admin" onmouseup="window.close()">
+                <input  class="btn btn-primary"  type="button" value="cerrar" name="cerrar" >
+            </a>
+		</td>
+	</table>
+</form>
+<script src="confirmacion.js"></script>
 </body>
 
 </html>

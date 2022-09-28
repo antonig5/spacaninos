@@ -17,10 +17,10 @@ if($_POST['busca']== ""){
         if ($registro){
 
             $id=            $registro['id_mascota'];
-            $nombre=        $registro['nombre_cliente'];
-            $apellido=      $registro['apellido_cliente'];
-            $telefono=      $registro['celular'];
-            $direccion=     $registro['direccion'];
+            $nombre=        $registro['id_raza'];
+            $apellido=      $registro['id_cliente'];
+            $telefono=      $registro['nombre_mascota'];
+            $direccion=     $registro['color'];
 
         }
 
@@ -33,7 +33,19 @@ if($_POST['busca']== ""){
 
 
 ?>
+<?php
+	$idp=$nombre;
+	$sql="SELECT * FROM raza WHERE id_raza=:id";
+	$resultado1=$base_de_datos->prepare($sql);
+	$resultado1->execute(array(":id"=>$idp));
+	$registro1=$resultado1->fetch(PDO::FETCH_ASSOC);
 
+    $ide=$apellido;
+	$sql="SELECT * FROM clientes WHERE id_cliente=:id";
+    $resultado1=$base_de_datos->prepare($sql);
+	$resultado1->execute(array(":id"=>$ide));
+	$registro2=$resultado1->fetch(PDO::FETCH_ASSOC);
+?> 
 
 
 <!DOCTYPE html>
@@ -50,21 +62,21 @@ if($_POST['busca']== ""){
 <body>
     <div id="res">
         <div id="h2"><h2 id="h2_1">Informacion</h2></div>
-            <form action="./index.php" method="POST">
+            <form action="./tablaM.php" method="POST">
 
-                <label id="lab1">Id:</label>
+                <label id="lab1">Id mascota:</label>
                 <div>
                     <input type=»text» id="inp1" readonly=»readonly» name="id" placeholder="<?php echo $id?>"/>
                 </div>
 
-                <label id="lab2">Nombre:</label>
+                <label id="lab2">Raza:</label>
                 <div>
-                    <input type=»text» id="inp2" readonly=»readonly» name="id" placeholder="<?php echo $nombre?>"/>
+                    <input type=»text» id="inp2" readonly=»readonly» name="id" placeholder="<?php echo $registro1['nombre_raza'];?>"/>
                 </div>
 
-                <label id="lab4">Apellido:</label>
+                <label id="lab4">Dueño:</label>
                 <div>
-                    <input type=»text» id="inp4" readonly=»readonly» name="id" placeholder="<?php echo $apellido?>"/>
+                    <input type=»text» id="inp4" readonly=»readonly» name="id" placeholder="<?php echo $registro2['nombre_cliente'];?>"/>
                 </div>
 
                 <label id="lab5">Telefono:</label>
