@@ -61,19 +61,22 @@
         <a  href="../admin/index.php">Inicio</a></li>
         
         <li class="nav-item">
-            <a href="./index.php">Recepcionistas</a></li>
+        <a href="../recepcionista/index.php">Recepcionistas</a></li>
     
         <li class="nav-item">
-        <a href="../admin/user.php">Usuarios</a></li>
+        <a href="./user.php">Usuarios</a></li>
 
         <li class="nav-item">
         <a href="../client/index.php">Clientes</a></li>
 
         <li class="nav-item">
-        <a href="../auxiliar/index.php">Auxiliar</a></li>
+        <a href="../auxiliar/index.php">Auxiliares</a></li>
+    
+        <li class="nav-item">
+        <a href="../mascotas/tablaM.php">Mascotas</a></li>
 
         <li class="nav-item">
-        <a href="../mascotas/tablaM.php">Mascota</a></li>
+        <a href="../razas/index.php">Razas</a></li>
 
         <li class="nav-item">
         <a href="../servicios/tablaS.php">Servicios</a></li>
